@@ -27,11 +27,6 @@ function submitHandler() {
 }
 
 function isAgeEligible(d) {
-  // let secondDate = new Date("2020-06-01");
-  // let age = secondDate - d;
-  // console.log(age);
-  // return age;
-
   let year = d.getFullYear;
   console.log(year);
   let month = d.getMonth;
