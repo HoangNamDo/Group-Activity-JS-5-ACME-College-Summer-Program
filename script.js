@@ -1,7 +1,10 @@
 function submitHandler() {
-  const name = document.getElementById("name").value;
-  const dateOfBirth = document.getElementById("dateOfBirth").value;
+  let name = document.getElementById("name").value;
+  let dateOfBirth = document.getElementById("dateOfBirth").value;
+  dateOfBirth = new Date(dateOfBirth);
+  let dateForCompare = new Date(2020, 06, 01);
   console.log(dateOfBirth);
+  console.log(dateForCompare);
   let result;
 
   if (dateOfBirth.length == 0) {
@@ -14,7 +17,10 @@ function submitHandler() {
   document.getElementById("greeting").style.visibility = "visible";
   console.log(isAgeEligible(dateOfBirth));
 
-  if(isAgeEligible(dateOfBirth))
+  let age = calculateAge(dateOfBirth, dateForCompare);
+  console.log(age);
+
+  if(age == 16 || age == 17)
     result = "Congratulation! Your age is met our requirement.";
   else 
     result = "Sorry! Your age is not met our requirement.";
@@ -25,6 +31,13 @@ function submitHandler() {
   document.getElementById("emptyNotification").style.visibility = "hidden";
   }
 }
+
+function calculateAge(firstDate, secondDate) {
+  var ageDifferenceMillisecond  = secondDate.getTime() - firstDate.getTime();
+  var ageDate = new Date(ageDifferenceMillisecond);
+  return Math.abs(ageDate.getUTCFullYear() - 1970);
+}
+
 
 function isAgeEligible(d) {
   let year = d.getFullYear;
