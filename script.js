@@ -4,7 +4,6 @@ function checkEligibility() {
   const name = document.getElementById("name").value;
   let dateOfBirth = document.getElementById("dateOfBirth").value;
   dateOfBirth = new Date(dateOfBirth);
-  dateOfBirth.setDate(dateOfBirth.getDate() + 1);
   let dateStamp = new Date(2020, 06, 01);
 
   age = calculateAge(dateOfBirth, dateStamp);
@@ -13,7 +12,7 @@ function checkEligibility() {
   console.log(dateStamp);
   console.log(age);
 
-  let greeting = `Hi ${name}! You are ${age} years old.`;
+  let greeting = `Hi ${name}! You are ${age} years of age as of July 1, 2020.`;
   let result = "";
 
   if (age == 16 || age == 17)
