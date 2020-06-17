@@ -1,7 +1,10 @@
 html {
   margin: 30px;
   font-size: 30px;
-  box-sizing: border-box;
+}
+
+p, input {
+  font-size: 30px;
 }
 
 .button {
@@ -12,4 +15,8 @@ html {
   text-align: center;
   text-decoration: none;
   display: inline-block;
+}
+
+.outcome {
+  font-weight: bold;
 }
