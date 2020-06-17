@@ -7,7 +7,7 @@ p, input {
   font-size: 30px;
 }
 
-.button {
+button {
   background-color: #008CBA;
   border: none;
   color: white;
