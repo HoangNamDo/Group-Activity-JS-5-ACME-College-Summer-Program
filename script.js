@@ -1,16 +1,12 @@
 checkEligibilityButton.addEventListener("click", checkEligibility);
 
 function checkEligibility() {
-  const name = document.getElementById("name").value;
   let dateOfBirth = document.getElementById("dateOfBirth").value;
   dateOfBirth = new Date(dateOfBirth);
   let dateStamp = new Date(2020, 06, 01);
 
-  age = calculateAge(dateOfBirth, dateStamp);
-
-  console.log(dateOfBirth);
-  console.log(dateStamp);
-  console.log(age);
+  let age = calculateAge(dateOfBirth, dateStamp);
+  const name = document.getElementById("name").value;
 
   let greeting = `Hi ${name}! You are ${age} years of age as of July 1, 2020.`;
   let result = "";
@@ -31,6 +27,6 @@ function calculateAge(firstDate, secondDate) {
 
   if ((diffMonth > 0) || (diffMonth = 0 && diffDate > 0))
     return diffYear;
-  else;
-  return diffYear - 1;
+  else
+    return diffYear - 1;
 }
