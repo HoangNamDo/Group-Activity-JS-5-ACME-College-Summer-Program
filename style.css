@@ -1,12 +1,8 @@
 html {
-  margin: 50px;
-  font-size: 16px;
+  margin: 30px;
+  font-size: 30px;
   box-sizing: border-box;
 }
-
-p {
-    font-size: 25px;
-  }
 
 .button {
   background-color: #008CBA;
@@ -16,10 +12,4 @@ p {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-}
-
-#emptyNotification {
-  visibility: hidden;
-  color: #f00;
 }

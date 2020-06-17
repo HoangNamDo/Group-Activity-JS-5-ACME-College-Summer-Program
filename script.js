@@ -1,61 +1,72 @@
-function submitHandler() {
-  let name = document.getElementById("name").value;
+function checkEligibility() {
+  const name = document.getElementById("name").value;
   let dateOfBirth = document.getElementById("dateOfBirth").value;
   dateOfBirth = new Date(dateOfBirth);
-  let dateForCompare = new Date(2020, 06, 01);
+  dateOfBirth.setDate(dateOfBirth.getDate() + 1);
+  let dateStamp = new Date(2020, 06, 01);
+
   console.log(dateOfBirth);
-  console.log(dateForCompare);
-  let result;
+  console.log(dateStamp);
 
-  if (dateOfBirth.length == 0) {
-  document.getElementById("emptyNotification").style.visibility = "visible";
-  document.getElementById("greeting").style.visibility = "hidden";
-  document.getElementById("result").style.visibility = "hidden";
-  } else {
-  greeting = `Hi ${name}!`;
-  document.getElementById("greeting").innerHTML = greeting;
-  document.getElementById("greeting").style.visibility = "visible";
-  console.log(isAgeEligible(dateOfBirth));
+  age = calculateAge(dateOfBirth, dateStamp);
 
-  let age = calculateAge(dateOfBirth, dateForCompare);
   console.log(age);
 
-  if(age == 16 || age == 17)
-    result = "Congratulation! Your age is met our requirement.";
-  else 
-    result = "Sorry! Your age is not met our requirement.";
+  greeting = `Hi ${name}! You are ${age} years old.`;
+  document.getElementById("greeting").innerHTML = greeting;
+
+  if (age == 16 || age == 17)
+    let result = "Congratulation! You are allowed to take classes during Summer Quarter by the ACME College Summer Program.";
+  else
+    result = "Sorry! You are NOT allowed to take classes during Summer Quarter by the ACME College Summer Program.";
 
   document.getElementById("result").innerHTML = result;
-  document.getElementById("result").style.visibility = "visible";
-
-  document.getElementById("emptyNotification").style.visibility = "hidden";
-  }
 }
 
 function calculateAge(firstDate, secondDate) {
-  var ageDifferenceMillisecond  = secondDate.getTime() - firstDate.getTime();
-  var ageDate = new Date(ageDifferenceMillisecond);
-  return Math.abs(ageDate.getUTCFullYear() - 1970);
+  diffYear = secondDate.getFullYear() - firstDate.getFullYear();
+  diffMonth = secondDate.getMonth() - firstDate.getMonth();
+  diffDate = secondDate.getDate() - firstDate.getDate();
+
+  if ((diffMonth > 0) || (diffMonth = 0 && diffDate > 0))
+    return diffYear;
+  else;
+  return diffYear - 1;
 }
 
 
-function isAgeEligible(d) {
-  let year = d.getFullYear;
+function isAgeEligible(firstDate) {
+  let year = firstDate.getFullYear();
   console.log(year);
-  let month = d.getMonth;
+
+  let month = firstDate.getMonth();
   console.log(month);
-  let date = d.getDate;
+  let date = firstDate.getDate();
   console.log(date);
+  diffYear = 2020 - year;
+  diffMonth = 06 - month;
+  diffDate = Math.abs(01 - date);
 
-  if (year == 2004)
-    if ((month < 6) || (month = 6 && date == 1))
+  if (diffYear == 16)
+    if ((diffMonth > 0) || (diffMonth = 0 && diffDate > 0))
       return true;
     else
       return false;
 
-  if (year == 2003)
-    if ((month > 6) || (month = 6 && date > 1))
+  if (diffYear == 2007)
+    if ((diffMonth < 0) || (diffMonth = 0 && date < 0))
       return true;
     else
       return false;
+}
+
+function calculateAge(firstDate, secondDate) {
+  diffYear = secondDate.getFullYear() - firstDate.getFullYear();
+  diffMonth = secondDate.getMonth() - firstDate.getMonth();
+  diffDate = secondDate.getDate() - firstDate.getDate();
+
+  if ((diffMonth > 0) || (diffMonth = 0 && diffDate > 0))
+    return diffYear;
+  else;
+  return diffYear - 1;
 }
