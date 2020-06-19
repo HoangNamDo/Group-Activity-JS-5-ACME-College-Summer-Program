@@ -25,7 +25,7 @@ function calculateAge(firstDate, secondDate) {
   let diffMonth = secondDate.getMonth() - firstDate.getMonth();
   let diffDate = secondDate.getDate() - firstDate.getDate();
   let _age;
-  if ((diffMonth > 0) || (diffMonth = 0 && diffDate > 0)) {
+  if ((diffMonth > 0) || (diffMonth == 0 && diffDate > 0)) {
     _age = diffYear;
   } else {
     _age = diffYear - 1;
